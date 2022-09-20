@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../book.service';
+import { LocationService } from '../location.service';
+import { GenreService } from '../genre.service';
 
 @Component({
   selector: 'app-display-book',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayBookComponent implements OnInit {
 
-  constructor() { }
+  Books:Array<any>=[];
+  Locations:Array<any>=[];
+  Genre:Array<any>=[];
+  constructor(private service:BookService, private services:LocationService,
+    private genreservice:GenreService) { }
 
   ngOnInit(): void {
+    this.service.getBooks().subscribe((a: any)=>{
+      this.Books= a;
+      this.services.getLocation().subscribe((l:any)=>{
+        this.Locations=l;
+        this.genreservice.getGenre().subscribe((g:any)=>{
+          this.Genre=g;
+        })
+      })
+    })
   }
 
 }

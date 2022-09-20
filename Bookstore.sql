@@ -78,3 +78,10 @@ insert into BooksInLanguages values (1, 5),
 (5,3),
 (2,4),
 (5,4)
+
+alter table books
+add Images varchar(225)
+
+
+alter table booksInLanguages
+add Quantity int

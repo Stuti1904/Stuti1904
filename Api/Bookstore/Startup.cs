@@ -27,9 +27,15 @@ namespace Bookstore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddDbContext<bookstoreContext>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<ILocationService, LocationService>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IBookInLanguageServices, BookInLanguageServices>();
+            services.AddScoped<ILanguageService, LanguageService>();
+            services.AddScoped<IAuthorService, AuthorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +45,7 @@ namespace Bookstore
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();

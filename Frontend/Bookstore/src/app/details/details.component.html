@@ -1,0 +1,35 @@
+<div class="container display">
+<ng-container *ngFor="let book of Books" >
+    <span *ngIf="book.bookId==selectedBookId">
+        <h2>{{book.title}}</h2>
+        <div class="d-flex">
+            <img src={{book.images}} alt="book cover" class="image">
+            <div>
+            <p> ISBN OF THE PRODUCT:{{book.isbn}}</p><br>
+            <p>{{book.description}}</p>
+            <ng-container *ngFor="let author of Authors">
+                <span *ngIf="author.authorId==book.author">
+            <p> About the author: <a>{{author.authorName}}</a></p>
+        </span>
+        </ng-container>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <th scope="col">Languages available</th>
+                <th scope="col">Quantity</th>
+            </thead>
+            <tbody *ngFor="let lan of BooksInLanguage" class="">
+              <tr *ngIf="lan.book== selectedBookId" scope="row">
+                        <ng-container *ngFor="let lang of Languages">
+                         <td *ngIf="lang.languageId== lan.language">
+                            {{lang.name}}
+                        </td>
+                    </ng-container>
+                        <td>{{lan.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </span>
+</ng-container>
+</div>
