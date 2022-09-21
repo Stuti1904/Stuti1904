@@ -1,0 +1,19 @@
+<div class="m-3 p-3">
+<div *ngFor="let auth of Authors">
+<span *ngIf="auth.authorId==selectedAuthorID">
+   <h2 class="text-primary"> Books available by {{auth.authorName}} are:</h2>
+</span>
+</div>
+</div>
+<div class="d-flex m-3 display">
+<div *ngFor="let book of Books" class="m-3">
+    <div class="card" style="width: 18rem;">
+        <img src={{book.images}} class="card-img-top image" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{book.title}}</h5>
+          <p class="card-text">Price: {{book.price}}Rs</p>
+          <a class="btn btn-primary"[routerLink]="['/details', book.bookId]">Details</a>
+        </div>
+      </div>
+</div>
+</div>

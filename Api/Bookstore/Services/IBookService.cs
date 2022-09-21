@@ -11,6 +11,8 @@ namespace Bookstore.Services
     {
         Task<List<Book>> GetAll();
       Task<Book> GetByName(string name);
+        Task<List<Book>> GetByAuthor(int id);
+        Task<Book> Add(Book book);
     }
 
     public class BookService: RepositoryService<Book>, IBookService
@@ -34,6 +36,20 @@ namespace Bookstore.Services
                                  where li.Title == name
                                  select li).FirstOrDefaultAsync());
             return onebook;
+        }
+
+        public async Task<List<Book>> GetByAuthor(int id)
+        {
+            var booksbyauthor = await ((from li in Context.Books
+                                        where li.Author == id
+                                        select li).ToListAsync());
+            return booksbyauthor;
+        }
+
+        public async Task<Book> Add(Book book)
+        {
+            var newbook = await base.Add(book);
+            return newbook;
         }
     }
 }

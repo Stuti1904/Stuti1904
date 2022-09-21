@@ -8,8 +8,11 @@ import { DisplayBookComponent } from './display-book/display-book.component';
 import { DetailsComponent } from './details/details.component';
 import { FooterComponent } from './footer/footer.component';
 import { FilterPipe } from 'filterPipe';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { AuthorComponent } from './author/author.component';
+import { AuthorWiseBooksComponent } from './author-wise-books/author-wise-books.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +20,18 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DisplayBookComponent,
     DetailsComponent,
     FooterComponent,
-    FilterPipe
+    FilterPipe,
+    ErrorPageComponent,
+    AuthorComponent,
+    AuthorWiseBooksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

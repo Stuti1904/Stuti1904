@@ -1,0 +1,23 @@
+<div class="border-bottom m-3 p-3">
+<h2 class="text-primary">AUTHORS CURRENTLY AVAILABLE IN THE STORE</h2>
+</div>
+<div class="display m-3 p-3">
+    <table class="table table-bordered">
+        <thead>
+            <th> Author ID</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of Authors">
+                <td>
+                    {{author.authorId}} 
+                </td>
+                <td>
+                    <a [routerLink]="['/authorwise', author.authorId]" class="links">
+                        {{author.authorName}} 
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

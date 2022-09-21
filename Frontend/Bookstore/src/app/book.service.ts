@@ -13,4 +13,19 @@ hostrul="https://localhost:44337/api"
     var call= this.http.get<Array<any>>(`${this.hostrul}/book`);
     return call;
   }
+
+  getBookByName(name:string): Observable<any>{
+    var call=this.http.get<any>(`${this.hostrul}/book/${name}`);
+    return call;
+  }
+
+  getBookByAuthor(id:number): Observable<Array<any>>{
+    var call=this.http.get<any>(`${this.hostrul}/book/authors/${id}`);
+    return call;
+  }
+
+  postbook(book:any){
+    var call=this.http.post(`${this.hostrul}/book`, book);
+    return call;
+  }
 }

@@ -1,4 +1,5 @@
-﻿using Bookstore.Services;
+﻿using Bookstore.Models;
+using Bookstore.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,6 +31,17 @@ namespace Bookstore.Controllers
         public async Task<IActionResult> GetByName(string name)
         {
             return Ok(await service.GetByName(name));
+        }
+        [HttpGet("authors/{id}")]
+        
+        public async Task<IActionResult> GetByAuthor(int id)
+        {
+            return Ok(await service.GetByAuthor(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Book book)
+        {
+            return Ok(await service.Add(book));
         }
     }
 }

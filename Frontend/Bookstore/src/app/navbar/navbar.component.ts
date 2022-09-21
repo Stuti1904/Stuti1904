@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GenreService } from '../genre.service';
 import { LocationService } from '../location.service';
 import { BookService } from '../book.service';
 import { FilterPipe } from 'filterPipe';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,8 +14,11 @@ export class NavbarComponent implements OnInit {
   Locations:Array<any>=[];
   Genre:Array<any>=[];
   searchText:any;
+  book:any;
+  @ViewChild('closeButton') closeButton:any;
   constructor(private service:BookService, private services:LocationService,
-    private genreservice:GenreService) { }
+    private genreservice:GenreService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -31,5 +35,17 @@ export class NavbarComponent implements OnInit {
   });
 
 
+}
+
+check(){
+ this.service.getBookByName(this.searchText).subscribe((a:any)=>{
+this.book=a;
+if(this.book==null){
+  this.router.navigate(['/', 'error']);
+  return ;
+}
+this.router.navigate([`details/${this.book.bookId}`]);
+this.closeButton.nativeElement.click();
+ })
 }
 }

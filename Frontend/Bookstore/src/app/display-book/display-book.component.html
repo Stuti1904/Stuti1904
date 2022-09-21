@@ -1,3 +1,9 @@
+<div class="container">
+<button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add a book</button>
+<button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal4">Add an author</button>
+<button class="btn btn-outline-primary m-1"> Add a genre</button>
+<button class="btn btn-outline-primary m-1"> Add a language</button>
+</div>
 <div *ngFor="let item of Books" class="container-fluid">
    <div class="card w-100 m-2">
     <div class=" card-body d-flex">
@@ -9,13 +15,13 @@
             <p class="text-muted">{{item.description}}</p>
             <p> Price: {{item.price}}Rs</p>
             <button class="btn btn-outline-primary m-1">Buy Now</button>
-            <button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1"> Get the Location</button><br>
+            <button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal2"> Get the Location</button><br>
             <a class="text-primary m-2" [routerLink]="['/details', item.bookId]">Details>>></a>
         </div>
     </div>
    </div>
 
-   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -35,4 +41,60 @@
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5">
+        <form [formGroup]="NewBook">
+          <input type="text" placeholder="enter the title of the book" class="form-control m-1" formControlName="title">
+          <input type="text" placeholder="enter the description of the book" class="form-control m-1" formControlName="description">
+          <input type="number" placeholder="Enter the price of the book" class="form-control m-1"formControlName="price">
+          <input type="text" placeholder="Enter the six digit ISBN" class="form-control m-1" formControlName="isbn">
+         <label>genre</label> <select class="form-control m-1" formControlName="genre">
+            <ng-container *ngFor="let genre of Genre">
+            <option value={{genre.genreId}}>{{genre.genreName}}</option>
+            </ng-container>
+          </select>
+          <label>author</label><select class="form-control m-1" formControlName="author">
+            <ng-container *ngFor="let author of Authors">
+              <option value={{author.authorId}}>{{author.authorName}}</option>
+              </ng-container>
+            </select>
+            <input type="date" placeholder="Enter the released date" class="form-control m-1" formControlName="releasedDate">
+            <input type="text" class="form-control m-1" placeholder="Enter the firebase url of your image" formControlName="images">
+            <button type="button" class="btn btn-primary"(click)="add()" data-bs-dismiss="modal">Add book</button>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Author</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5">
+        <form [formGroup]="NewAuthor">
+          <input type="text" placeholder="enter the full name of author " class="form-control m-1" formControlName="authorName">
+          <input type="text" placeholder="enter some lines about the author" class="form-control m-1" formControlName="about">
+          <input type="radio" formControlName="gender" value="Male"><label>Male</label>
+          <input type="radio" formControlName="gender" value="Female"><label>Female</label>
+          <input type="radio" formControlName="gender" value="Trans"><label>Trans</label>
+          <input type="radio" formControlName="gender" value="Others"><label>Others</label>
+            <button type="button" class="btn btn-primary"(click)="addauthor()" data-bs-dismiss="modal">Add Author</button>
+        </form>
+    </div>
+  </div>
+</div>
 </div>

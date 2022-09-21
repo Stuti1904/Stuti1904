@@ -12,4 +12,9 @@ export class AuthorService {
     var call=this.http.get<Array<any>>(`${this.hostrul}/author`);
     return call;
   }
+
+  postAuthor(author:any){
+    var call=this.http.post(`${this.hostrul}/author`, author);
+    return call;
+  }
 }
