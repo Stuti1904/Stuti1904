@@ -13,6 +13,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthorComponent } from './author/author.component';
 import { AuthorWiseBooksComponent } from './author-wise-books/author-wise-books.component';
+import { AddGenreComponent } from './add-genre/add-genre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { AuthorWiseBooksComponent } from './author-wise-books/author-wise-books.
     FilterPipe,
     ErrorPageComponent,
     AuthorComponent,
-    AuthorWiseBooksComponent
+    AuthorWiseBooksComponent,
+    AddGenreComponent
   ],
   imports: [
     BrowserModule,

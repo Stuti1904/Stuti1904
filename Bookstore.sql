@@ -85,3 +85,20 @@ add Images varchar(225)
 
 alter table booksInLanguages
 add Quantity int
+
+
+alter table Books 
+add IsActive bit
+
+alter table Authors
+add IsActive bit
+
+alter table Genre
+add IsActive bit
+
+alter table Language
+add IsActive bit
+
+alter table Location
+add IsActive bit
+

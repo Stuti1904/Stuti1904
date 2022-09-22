@@ -14,6 +14,7 @@ namespace Bookstore.Models
 
         public int LocationId { get; set; }
         public string LocationName { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual ICollection<Genre> Genres { get; set; }
     }

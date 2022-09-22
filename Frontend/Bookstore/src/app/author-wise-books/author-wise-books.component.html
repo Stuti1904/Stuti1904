@@ -2,6 +2,7 @@
 <div *ngFor="let auth of Authors">
 <span *ngIf="auth.authorId==selectedAuthorID">
    <h2 class="text-primary"> Books available by {{auth.authorName}} are:</h2>
+   <p class="text-secondary">About the author: {{auth.about}}</p>
 </span>
 </div>
 </div>

@@ -12,4 +12,9 @@ export class LanguageService {
     var call=this.http.get<Array<any>>(`${this.hostrul}/language`);
     return call;
   }
+
+  postlanguage(language:any){
+    var call=this.http.post(`${this.hostrul}/language`, language);
+    return call;
+  }
 }

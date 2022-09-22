@@ -14,6 +14,7 @@ namespace Bookstore.Models
 
         public int LanguageId { get; set; }
         public string Name { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual ICollection<BooksInLanguage> BooksInLanguages { get; set; }
     }

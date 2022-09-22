@@ -9,6 +9,7 @@ namespace Bookstore.Services
    public  interface IGenreService
     {
         Task<List<Genre>> GetAll();
+        Task<Genre> Add(Genre genre);
     }
 
     public class GenreService : RepositoryService<Genre>, IGenreService
@@ -22,6 +23,12 @@ namespace Bookstore.Services
         {
             var list = await  base.GetAll();
             return list;
+        }
+
+        public async Task<Genre> Add(Genre genre)
+        {
+            var newgenre = await base.Add(genre);
+            return newgenre;
         }
     }
 }

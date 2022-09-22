@@ -28,4 +28,9 @@ hostrul="https://localhost:44337/api"
     var call=this.http.post(`${this.hostrul}/book`, book);
     return call;
   }
+
+  deleteBook(id:number){
+    var call=this.http.delete(`${this.hostrul}/book/${id}`);
+    return call;
+  }
 }

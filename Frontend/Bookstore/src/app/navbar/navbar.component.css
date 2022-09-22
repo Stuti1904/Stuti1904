@@ -1,4 +1,13 @@
 .navigation{
-    height:40%;
-    padding-bottom:0;
+    height:50px;
+    
+}
+.text{
+    font-size:20px;
+}
+.center{
+    margin: auto;
+    width: 50%;
+    border: 3px solid;
+    padding: 10px;
 }

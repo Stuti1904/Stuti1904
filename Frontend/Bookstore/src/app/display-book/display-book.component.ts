@@ -5,6 +5,7 @@ import { GenreService } from '../genre.service';
 import { AuthorService } from '../author.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-display-book',
@@ -19,6 +20,8 @@ export class DisplayBookComponent implements OnInit {
   Authors:Array<any>=[];
   tempbook:any;
   tempauthor:any;
+  count=0;
+  LocationsWithSpace:Array<any>=[];
   NewBook=this.fb.group({ 
     title:['', Validators.required],
     description:['', Validators.required],
@@ -33,9 +36,20 @@ export class DisplayBookComponent implements OnInit {
     authorName:['', Validators.required],
     about:['', Validators.required],
     gender:['', Validators.required],
-  })
+  });
+NewGenre=this.fb.group({
+  genreName:['', Validators.required],
+  location:[ ,Validators.required]
+});
+
+NewLanguage=this.fb.group({
+  name: ['', Validators.required]
+});
+tempLanguage:any;
+
   constructor(private service:BookService, private services:LocationService,
-    private genreservice:GenreService, private authorservice:AuthorService, private fb:FormBuilder, private router:Router) { }
+    private genreservice:GenreService, private authorservice:AuthorService, private fb:FormBuilder, private router:Router,
+    private languageservice:LanguageService) { }
 
   ngOnInit(): void {
     this.service.getBooks().subscribe((a: any)=>{
@@ -46,6 +60,18 @@ export class DisplayBookComponent implements OnInit {
           this.Genre=g;
           this.authorservice.getAuthors().subscribe((auth:any)=>{
             this.Authors=auth;
+              this.Locations.forEach((location)=>{
+                this.Genre.forEach((genre)=>{
+                  if(location.locationId==genre.location){
+                    this.count=this.count+1;
+                  }
+                })
+                // console.log(this.count, location.locationId);
+                if(this.count<2){
+                  this.LocationsWithSpace.push(location);
+                }
+                this.count=0;
+              })            
           })
         })
       })
@@ -71,5 +97,25 @@ export class DisplayBookComponent implements OnInit {
         this.router.navigate(['/author']);
       })
       console.log(this.NewAuthor.value);
+    }
+
+    addgenre(){
+      console.log(this.NewGenre.value);
+      this.NewGenre.reset();
+    }
+
+    addlanguage(){
+        this.tempLanguage=this.NewLanguage.value;
+        console.log(this.tempLanguage);
+        this.languageservice.postlanguage(this.tempLanguage).subscribe((a:any)=>{
+
+          this.NewLanguage.reset();
+        })
+    }
+
+    deleteBook(id:any){
+      this.service.deleteBook(id).subscribe((a:any)=>{
+        this.ngOnInit();
+      })
     }
 }

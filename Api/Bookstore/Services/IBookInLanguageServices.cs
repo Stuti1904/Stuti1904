@@ -9,6 +9,7 @@ namespace Bookstore.Services
    public  interface IBookInLanguageServices
     {
         Task<List<BooksInLanguage>> GetAll();
+        Task<BooksInLanguage> Add(BooksInLanguage books);
     }
     public class BookInLanguageServices: RepositoryService<BooksInLanguage>, IBookInLanguageServices
     {
@@ -21,6 +22,12 @@ namespace Bookstore.Services
         {
             var list = await base.GetAll();
             return list;
+        }
+
+        public async Task<BooksInLanguage> Add(BooksInLanguage books)
+        {
+            var newlan = await base.Add(books);
+            return newlan;
         }
     }
 }

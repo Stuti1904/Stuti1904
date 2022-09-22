@@ -9,6 +9,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let author of Authors">
+                <ng-container *ngIf="author.isActive==1">
                 <td>
                     {{author.authorId}} 
                 </td>
@@ -17,6 +18,11 @@
                         {{author.authorName}} 
                     </a>
                 </td>
+                <td>
+                    <button class="btn btn-outline-primary m-1">Edit</button>
+                    <button class="btn btn-outline-danger m-1" (click)="deleteauthors(author.authorId)">Delete</button>
+                </td>
+            </ng-container>
             </tr>
         </tbody>
     </table>

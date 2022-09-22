@@ -10,6 +10,7 @@ namespace Bookstore.Services
     {
         Task<List<Author>> GetAll();
         Task<Author> Add(Author author);
+        Task<Author> Delete(int id);
     }
 
     public class AuthorService:RepositoryService<Author>, IAuthorService
@@ -28,6 +29,12 @@ namespace Bookstore.Services
         {
             var newauthor = await base.Add(author);
             return newauthor;
+        }
+
+        public async Task<Author> Delete(int id)
+        {
+            var deletedAuthor = await base.Delete(id);
+            return deletedAuthor;
         }
     }
 }

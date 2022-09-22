@@ -13,4 +13,9 @@ export class GenreService {
     return call;
 
   }
+
+  postgenre(genre:any){
+    var call= this.http.post(`${this.hostrul}/genre`, genre);
+    return call;
+  }
 }

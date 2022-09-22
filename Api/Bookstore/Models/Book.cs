@@ -21,6 +21,7 @@ namespace Bookstore.Models
         public decimal? Price { get; set; }
         public DateTime? ReleasedDate { get; set; }
         public string Images { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual Author AuthorNavigation { get; set; }
         public virtual Genre GenreNavigation { get; set; }

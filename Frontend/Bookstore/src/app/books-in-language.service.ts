@@ -12,4 +12,9 @@ export class BooksInLanguageService {
     var call=this.http.get<Array<any>>(`${this.hostrul}/booksinlanguage`);
     return call;
   }
+
+  postNewLanguages(languages:any){
+    var call= this.http.post(`${this.hostrul}/booksinlanguage`, languages);
+    return call;
+  }
 }

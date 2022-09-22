@@ -9,6 +9,7 @@ namespace Bookstore.Services
    public interface ILanguageService
     {
         Task<List<Language>> GetAll();
+        Task<Language> Add(Language language);
     }
 
     public class LanguageService: RepositoryService<Language>, ILanguageService
@@ -22,6 +23,12 @@ namespace Bookstore.Services
         {
             var list = await base.GetAll();
             return list;
+        }
+
+        public async Task<Language> Add(Language language)
+        {
+            var newLanguage = await base.Add(language);
+            return newLanguage;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Bookstore.Services
       Task<Book> GetByName(string name);
         Task<List<Book>> GetByAuthor(int id);
         Task<Book> Add(Book book);
+        Task<Book> Delete(int id);
     }
 
     public class BookService: RepositoryService<Book>, IBookService
@@ -50,6 +51,12 @@ namespace Bookstore.Services
         {
             var newbook = await base.Add(book);
             return newbook;
+        }
+
+        public async Task<Book> Delete(int id)
+        {
+            var deletedbook = await base.Delete(id);
+            return deletedbook;
         }
     }
 }

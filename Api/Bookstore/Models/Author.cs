@@ -16,6 +16,7 @@ namespace Bookstore.Models
         public string AuthorName { get; set; }
         public string Gender { get; set; }
         public string About { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
     }

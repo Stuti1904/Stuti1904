@@ -15,5 +15,9 @@ Authors:Array<any>=[];
       this.Authors=auth;
     })
   }
-
+deleteauthors(id:any){
+  this.service.deletAuthor(id).subscribe((auth:any)=>{
+    this.ngOnInit();
+  })
+}
 }

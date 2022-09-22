@@ -1,4 +1,5 @@
-﻿using Bookstore.Services;
+﻿using Bookstore.Models;
+using Bookstore.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,6 +25,11 @@ namespace Bookstore.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok(await services.GetAll());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] BooksInLanguage books)
+        {
+            return Ok(await services.Add(books));
         }
     }
 }

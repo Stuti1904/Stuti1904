@@ -12,6 +12,9 @@
             <p> About the author: <a>{{author.authorName}}</a></p>
         </span>
         </ng-container>
+        <div>
+        <button class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal5"> Add Languages for this book</button>
+        </div>
             </div>
         </div>
         <table class="table table-striped">
@@ -30,6 +33,38 @@
                         </tr>
                     </tbody>
                 </table>
+           
             </span>
 </ng-container>
 </div>
+
+
+
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add langauge available</h5>
+          <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="NewLanguageForBook">
+            <label>Select a language</label>  <select class="form-control" formControlName="language">
+                      <ng-container *ngFor="let language of Languages">
+                            <option value={{language.languageId}}>{{language.name}}</option>
+                      </ng-container>
+                 
+              </select>
+              <input type="number" class="form-control" placeholder="enter your qunatity" formControlName="quantity">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addNewLanguage()" data-bs-dismiss="modal">Add book in a new language</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

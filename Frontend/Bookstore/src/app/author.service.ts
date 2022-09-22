@@ -17,4 +17,8 @@ export class AuthorService {
     var call=this.http.post(`${this.hostrul}/author`, author);
     return call;
   }
+  deletAuthor(id:number){
+    var call= this.http.delete(`${this.hostrul}/author/${id}`);
+    return call;
+  }
 }
