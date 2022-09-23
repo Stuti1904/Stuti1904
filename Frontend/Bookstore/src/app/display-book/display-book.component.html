@@ -1,32 +1,22 @@
-<div class="container con">
-  <div class="row p-3">
-    <div class="col">
-<button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add a book</button></div>
-<div class="col"><button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal4">Add an author</button></div>
-<div class="col"><button class="btn btn-outline-primary m-1"  routerLink="/addgenre"> Add a genre</button></div>
-<div class="col"><button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal6"> Add a language</button></div>
-<div class="col"><button class="btn btn-outline-primary m-1"> Add a Location</button></div>
-</div>
-</div>
 <div class="row" >
   <ng-container  *ngFor="let item of Books">
-  <div  class="col-4" *ngIf="item.isActive==1">
-   <div class="card  m-2">
+  <div  class="col-3" *ngIf="item.isActive==1">
+   <div class="card  m-2 cardDivision">
     <div class="card-body">
-        <div>
-            <img src={{item.images}} class="image" alt="book image">
+        <div class="image">
+            <img src={{item.images}} class=" card-img-top" alt="book image">
         </div>
         <div class="m-3">
-            <h3 class="fw-bold">{{item.title}}</h3>
+            <h3 class="fw-bold border-bottom">{{item.title}}</h3>
             <p class="text-muted">{{item.description}}</p>
             <p> Price: {{item.price}}Rs</p>
-            <button class="btn btn-outline-primary m-1">Edit</button>
+            <button class="btn btn-outline-primary m-1" [routerLink]="['/editbook', item.bookId]">Edit</button>
             <button class="btn btn-outline-danger m-1"(click)="deleteBook(item.bookId)"> Delete</button><br>
             <div *ngFor="let genre of Genre">
               <div *ngFor="let location of Locations">
                   <span *ngIf="item.genre==genre.genreId">
                       <span *ngIf="genre.location==location.locationId">
-                      <p> The book can be found on {{location.locationName}}</p>
+                      <p>Location: The book can be found on {{location.locationName}}</p>
                     </span>
                   </span>
               </div>
@@ -39,78 +29,4 @@
   </ng-container>
    </div>
 
-
-<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a Book</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-5">
-        <form [formGroup]="NewBook">
-          <input type="text" placeholder="enter the title of the book" class="form-control m-1" formControlName="title">
-          <input type="text" placeholder="enter the description of the book" class="form-control m-1" formControlName="description">
-          <input type="number" placeholder="Enter the price of the book" class="form-control m-1"formControlName="price">
-          <input type="text" placeholder="Enter the six digit ISBN" class="form-control m-1" formControlName="isbn">
-         <label>genre</label> <select class="form-control m-1" formControlName="genre">
-            <ng-container *ngFor="let genre of Genre">
-            <option value={{genre.genreId}}>{{genre.genreName}}</option>
-            </ng-container>
-          </select>
-          <label>author</label><select class="form-control m-1" formControlName="author">
-            <ng-container *ngFor="let author of Authors">
-              <option value={{author.authorId}}>{{author.authorName}}</option>
-              </ng-container>
-            </select>
-            <input type="date" placeholder="Enter the released date" class="form-control m-1" formControlName="releasedDate">
-            <input type="text" class="form-control m-1" placeholder="Enter the firebase url of your image" formControlName="images">
-            <button type="button" class="btn btn-primary"(click)="add()" data-bs-dismiss="modal">Add book</button>
-        </form>
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Author</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-5">
-        <form [formGroup]="NewAuthor">
-          <input type="text" placeholder="enter the full name of author " class="form-control m-1" formControlName="authorName">
-          <input type="text" placeholder="enter some lines about the author" class="form-control m-1" formControlName="about">
-          <input type="radio" formControlName="gender" value="Male"><label>Male</label>
-          <input type="radio" formControlName="gender" value="Female"><label>Female</label>
-          <input type="radio" formControlName="gender" value="Trans"><label>Trans</label>
-          <input type="radio" formControlName="gender" value="Others"><label>Others</label>
-            <button type="button" class="btn btn-primary"(click)="addauthor()" data-bs-dismiss="modal">Add Author</button>
-        </form>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Language</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-3">
-        <form [formGroup]="NewLanguage">
-          <input type="text" placeholder="enter the language " class="form-control m-1" formControlName="name">
-            <button type="button" class="btn btn-primary"(click)="addlanguage()" data-bs-dismiss="modal">Add Language</button>
-        </form>
-    </div>
-  </div>
-</div>
-</div>
 

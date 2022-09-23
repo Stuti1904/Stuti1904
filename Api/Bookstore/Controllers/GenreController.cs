@@ -31,5 +31,10 @@ namespace Bookstore.Controllers
         {
             return Ok(await service.Add(genre));
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] Genre genre)
+        {
+            return Ok(await service.Update(id, genre));
+        }
     }
 }

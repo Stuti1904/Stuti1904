@@ -1,0 +1,9 @@
+<div class="display">
+<form [formGroup]="NewBook">
+    <input type="text" placeholder="enter the title of the book" class="form-control m-1" formControlName="title">
+    <input type="text" placeholder="enter the description of the book" class="form-control m-1" formControlName="description">
+    <input type="number" placeholder="Enter the price of the book" class="form-control m-1"formControlName="price">
+     <input type="text" class="form-control m-1" placeholder="Enter the firebase url of your image" formControlName="images">
+      <button type="button" class="btn btn-primary" (click)="update(selectedBookId)" >Update Details</button>
+  </form>
+</div>

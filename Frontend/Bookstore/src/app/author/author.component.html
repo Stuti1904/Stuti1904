@@ -2,13 +2,13 @@
 <h2 class="text-primary">AUTHORS CURRENTLY AVAILABLE IN THE STORE</h2>
 </div>
 <div class="display m-3 p-3">
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <th> Author ID</th>
             <th>Name</th>
         </thead>
         <tbody>
-            <tr *ngFor="let author of Authors">
+            <tr *ngFor="let author of Authors |paginate:{itemsPerPage:pageSize, currentPage:page, totalItems:count}">
                 <ng-container *ngIf="author.isActive==1">
                 <td>
                     {{author.authorId}} 
@@ -19,11 +19,12 @@
                     </a>
                 </td>
                 <td>
-                    <button class="btn btn-outline-primary m-1">Edit</button>
+                    <button class="btn btn-outline-primary m-1" [routerLink]="['/editauthor', author.authorId]">Edit</button>
                     <button class="btn btn-outline-danger m-1" (click)="deleteauthors(author.authorId)">Delete</button>
                 </td>
             </ng-container>
             </tr>
+            <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls> 
         </tbody>
     </table>
 </div>

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
 import { BookService } from '../book.service';
 import { LocationService } from '../location.service';
 import { GenreService } from '../genre.service';
 import { AuthorService } from '../author.service';
-import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LanguageService } from '../language.service';
 
 @Component({
-  selector: 'app-display-book',
-  templateUrl: './display-book.component.html',
-  styleUrls: ['./display-book.component.css']
+  selector: 'app-float-buttons',
+  templateUrl: './float-buttons.component.html',
+  styleUrls: ['./float-buttons.component.css']
 })
-export class DisplayBookComponent implements OnInit {
+export class FloatButtonsComponent implements OnInit {
 
   Books:Array<any>=[];
   Locations:Array<any>=[];
@@ -131,18 +131,4 @@ tempLanguage:any;
           this.NewLanguage.reset();
         })
     }
-
-    deleteBook(id:any){
-      this.service.deleteBook(id).subscribe((a:any)=>{
-        this.ngOnInit();
-      })
-    }
-
-    handlePageChange(event : any) {
-      console.log(event);
-      this.page = event;
-  
-    }
-
-   
-}
+  }

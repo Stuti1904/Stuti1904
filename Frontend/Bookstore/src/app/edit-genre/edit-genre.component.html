@@ -1,0 +1,9 @@
+<form [formGroup]="NewGenre" >
+    <input type="text" placeholder="enter the genre name" class="form-control m-1" formControlName="genreName">
+   <label>Location</label> <select class="form-control m-1" formControlName="location">
+      <ng-container *ngFor="let location of Locations">
+      <option value={{location.locationId}}>{{location.locationName}}</option>
+      </ng-container>
+    </select>
+      <button type="button" class="btn btn-primary">Update Genre</button>
+  </form>

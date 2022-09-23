@@ -35,5 +35,10 @@ namespace Bookstore.Controllers
         {
             return Ok(await service.Delete(id));
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] Author author)
+        {
+            return Ok(await service.Update(id, author));
+        }
     }
 }

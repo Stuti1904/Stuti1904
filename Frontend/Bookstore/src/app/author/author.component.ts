@@ -8,6 +8,9 @@ import { AuthorService } from '../author.service';
 })
 export class AuthorComponent implements OnInit {
 Authors:Array<any>=[];
+page=1;
+count=0;
+pageSize=5;
   constructor(private service:AuthorService) { }
 
   ngOnInit(): void {
@@ -19,5 +22,9 @@ deleteauthors(id:any){
   this.service.deletAuthor(id).subscribe((auth:any)=>{
     this.ngOnInit();
   })
+}
+handlePageChange(even:any){
+  console.log(even);
+  this.page=even;
 }
 }

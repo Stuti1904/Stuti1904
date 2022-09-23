@@ -1,8 +1,14 @@
 .image{
-     max-height:400px;
-     margin-right:5%;
+     max-height:500px !important;
+     margin:auto;
+     width:50% !important;
+
 }
 .con{
      margin: auto;
      width: 50%;
+}
+
+.cardDivision{
+     height:80vh;
 }

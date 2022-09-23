@@ -10,6 +10,7 @@ namespace Bookstore.Services
     {
         Task<List<Genre>> GetAll();
         Task<Genre> Add(Genre genre);
+         Task<Genre> Update(int id, Genre genre);
     }
 
     public class GenreService : RepositoryService<Genre>, IGenreService
@@ -29,6 +30,14 @@ namespace Bookstore.Services
         {
             var newgenre = await base.Add(genre);
             return newgenre;
+        }
+
+        public async Task<Genre> Update(int id, Genre genre)
+        {
+            var tobeupdated = await base.GetOne(id);
+            tobeupdated.Location = genre.Location;
+                await base.update(tobeupdated);
+            return tobeupdated;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Bookstore.Services
         Task<List<Author>> GetAll();
         Task<Author> Add(Author author);
         Task<Author> Delete(int id);
+        Task<Author> Update(int id, Author author);
     }
 
     public class AuthorService:RepositoryService<Author>, IAuthorService
@@ -35,6 +36,15 @@ namespace Bookstore.Services
         {
             var deletedAuthor = await base.Delete(id);
             return deletedAuthor;
+        }
+        public async Task<Author> Update(int id, Author author)
+        {
+            var tobeupdated = await base.GetOne(id);
+            tobeupdated.AuthorName = author.AuthorName;
+            tobeupdated.About = author.About;
+            tobeupdated.Gender = author.Gender;
+            await base.update(tobeupdated);
+            return tobeupdated;
         }
     }
 }

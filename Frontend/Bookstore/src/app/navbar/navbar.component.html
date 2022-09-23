@@ -1,8 +1,16 @@
 <div class="d-flex navigation container-fluid border-bottom border-primary">
     <div routerLink="/books" class=" text my-auto text-primary mx-2">
-        <span class="me-2">Bookstore <i class="fas fa-book-reader"></i></span>
+        <span class="me-2 changecursor">Bookstore <i class="fas fa-book-reader"></i></span>
     </div>
-    <div class="ms-auto me-5 text my-auto text-primary">
-        <span>Admin Panel</span>
+    <div class="ms-auto me-5  my-auto text-primary">
+        <div class="dropdown">
+            <button class="dropbtn btn text-primary text">Admin Panel</button>
+            <div class="dropdown-content text-primary">
+              <a routerLink="/author">Authors</a>
+              <a routerLink="/genres">Genres</a>
+              <a href="#">Languages</a>
+            </div>
+          </div>
         </div>
 </div>
+

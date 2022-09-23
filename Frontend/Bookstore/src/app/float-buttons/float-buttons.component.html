@@ -1,0 +1,113 @@
+<div class="container con">
+    <div class="row p-3">
+      <div class="col">
+  <button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">Add a book</button></div>
+  <div class="col"><button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal4">Add an author</button></div>
+  <div class="col"><button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal2"> Add a genre</button></div>
+  <div class="col"><button class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal6"> Add a language</button></div>
+  <div class="col"><button class="btn btn-outline-primary m-1"> Add a Location</button></div>
+  </div>
+  </div>
+
+
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5">
+          <form [formGroup]="NewBook">
+            <input type="text" placeholder="enter the title of the book" class="form-control m-1" formControlName="title">
+            <input type="text" placeholder="enter the description of the book" class="form-control m-1" formControlName="description">
+            <input type="number" placeholder="Enter the price of the book" class="form-control m-1"formControlName="price">
+            <input type="text" placeholder="Enter the six digit ISBN" class="form-control m-1" formControlName="isbn">
+           <label>genre</label> <select class="form-control m-1" formControlName="genre">
+              <ng-container *ngFor="let genre of Genre">
+              <option value={{genre.genreId}}>{{genre.genreName}}</option>
+              </ng-container>
+            </select>
+            <label>author</label><select class="form-control m-1" formControlName="author">
+              <ng-container *ngFor="let author of Authors">
+                <option value={{author.authorId}}>{{author.authorName}}</option>
+                </ng-container>
+              </select>
+              <input type="date" placeholder="Enter the released date" class="form-control m-1" formControlName="releasedDate">
+              <input type="text" class="form-control m-1" placeholder="Enter the firebase url of your image" formControlName="images">
+              <button type="button" class="btn btn-primary"(click)="add()" data-bs-dismiss="modal">Add book</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Author</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5">
+          <form [formGroup]="NewAuthor">
+            <input type="text" placeholder="enter the full name of author " class="form-control m-1" formControlName="authorName">
+            <input type="text" placeholder="enter some lines about the author" class="form-control m-1" formControlName="about">
+          <div class="p-2">  <input type="radio" formControlName="gender" value="Male" class="m-1"><label>Male</label>
+            <input type="radio" formControlName="gender" value="Female" class="m-1"><label>Female</label>
+            <input type="radio" formControlName="gender" value="Trans" class="m-1"><label>Trans</label>
+            <input type="radio" formControlName="gender" value="Others" class="m-1"><label>Others</label></div>
+              <button type="button" class="btn btn-primary m-2"(click)="addauthor()" data-bs-dismiss="modal">Add Author</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Language</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          <form [formGroup]="NewLanguage">
+            <input type="text" placeholder="enter the language " class="form-control m-1" formControlName="name">
+              <button type="button" class="btn btn-primary"(click)="addlanguage()" data-bs-dismiss="modal">Add Language</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Genre</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5">
+          <form [formGroup]="NewGenre" >
+            <input type="text" placeholder="enter the genre name" class="form-control m-1" formControlName="genreName">
+           <label>Location</label> <select class="form-control m-1" formControlName="location">
+              <ng-container *ngFor="let location of LocationsWithSpace">
+              <option value={{location.locationId}}>{{location.locationName}}</option>
+              </ng-container>
+            </select>
+              <button type="button" class="btn btn-primary"(click)="addgenre()" data-bs-dismiss="modal">Add Genre</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  

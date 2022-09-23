@@ -1,0 +1,16 @@
+USER STORY FOR BOOKSTORE MANAGEMENT SYSTEM ADMIN PANEL:
+1. Admin can view all the books
+2. Admin can add, edit and delete books
+3. There should be a page for admin to view, add, edit delete the following entities:
+		a. Genre
+		b. Language
+		c. Authors
+
+4. Admin can view what books are available in what languages and can add new languages
+
+
+USER STORY FOR BOOKSTORE MANAGEMENT ON THE STORE FRONT:
+1. The operator can view the basic info about the books
+for example, the title, author, price, genre and the languages the book is available with quantities
+2.They can make a bill for a customer: can add one or many books to a bill
+3. can search a book based on name, author name and genre

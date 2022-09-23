@@ -102,3 +102,25 @@ add IsActive bit
 alter table Location
 add IsActive bit
 
+
+
+
+create trigger InsteadOfDelete
+on
+books
+instead of delete
+as
+update Books
+set isActive=0
+where BookID= (select BookID from deleted)
+
+
+create trigger InsteadOfDeletingAuthor
+on 
+authors
+instead of delete
+as
+update Authors
+set isActive=0
+where AuthorID= (select AuthorID from deleted)
+

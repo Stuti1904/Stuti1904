@@ -14,6 +14,12 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthorComponent } from './author/author.component';
 import { AuthorWiseBooksComponent } from './author-wise-books/author-wise-books.component';
 import { AddGenreComponent } from './add-genre/add-genre.component';
+import { GenresComponent } from './genres/genres.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { EditBooksComponent } from './edit-books/edit-books.component';
+import { EditAuthorsComponent } from './edit-authors/edit-authors.component';
+import { FloatButtonsComponent } from './float-buttons/float-buttons.component';
+import { EditGenreComponent } from './edit-genre/edit-genre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +31,13 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
     ErrorPageComponent,
     AuthorComponent,
     AuthorWiseBooksComponent,
-    AddGenreComponent
+    AddGenreComponent,
+    GenresComponent,
+    EditBooksComponent,
+    EditAuthorsComponent,
+    FloatButtonsComponent,
+    EditGenreComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -33,7 +45,8 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
