@@ -5,7 +5,7 @@
     <div class="display m-3 p-3">
         <table class="table">
             <thead>
-                <th> Author ID</th>
+                <th> Genre ID</th>
                 <th>Name</th>
                 <th></th>
             </thead>
@@ -19,8 +19,8 @@
                             {{genre.genreName}} 
                     </td>
                     <td>
-                        <button class="btn btn-outline-primary m-1" [routerLink]="['/editgenre', genre.genreId]">Edit</button>
-                        <button class="btn btn-outline-danger m-1" >Delete</button>
+                        <button class="btn btn-outline-primary m-1"[routerLink]="['/editgenre', genre.genreId]" >Edit</button>
+                        <button class="btn btn-outline-danger m-1" (click)="delete(genre.genreId)"> Delete</button>
                     </td>
                 </ng-container>
                 </tr>

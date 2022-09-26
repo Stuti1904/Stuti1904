@@ -10,6 +10,9 @@ namespace Bookstore.Services
     {
         Task<List<Language>> GetAll();
         Task<Language> Add(Language language);
+
+        Task<Language> Update(int id, Language language);
+        Task<Language> Delete(int id);
     }
 
     public class LanguageService: RepositoryService<Language>, ILanguageService
@@ -29,6 +32,21 @@ namespace Bookstore.Services
         {
             var newLanguage = await base.Add(language);
             return newLanguage;
+        }
+
+        public async Task<Language> Update(int id, Language language)
+        {
+            var tobeUpdated = await base.GetOne(id);
+            tobeUpdated.Name = language.Name;
+            await base.update(tobeUpdated);
+            return tobeUpdated;
+        }
+
+        public async Task<Language> Delete(int id)
+        {
+            var tobeDeleted = await base.Delete(id);
+            await base.Delete(id);
+            return tobeDeleted;
         }
     }
 }

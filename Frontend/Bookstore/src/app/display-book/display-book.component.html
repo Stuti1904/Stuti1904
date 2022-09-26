@@ -1,6 +1,6 @@
 <div class="row" >
   <ng-container  *ngFor="let item of Books">
-  <div  class="col-3" *ngIf="item.isActive==1">
+  <div  class="col-sm-3 col-md-6 col-lg-3" *ngIf="item.isActive==1">
    <div class="card  m-2 cardDivision">
     <div class="card-body">
         <div class="image">
@@ -8,7 +8,7 @@
         </div>
         <div class="m-3">
             <h3 class="fw-bold border-bottom">{{item.title}}</h3>
-            <p class="text-muted">{{item.description}}</p>
+            <p class="text-muted description">{{item.description}}</p>
             <p> Price: {{item.price}}Rs</p>
             <button class="btn btn-outline-primary m-1" [routerLink]="['/editbook', item.bookId]">Edit</button>
             <button class="btn btn-outline-danger m-1"(click)="deleteBook(item.bookId)"> Delete</button><br>

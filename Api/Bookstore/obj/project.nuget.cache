@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zqOAOKPZZGrbEqAw9hcfBfChxpq8Tp22gTXc6515EClK3/BBfD2PhCo1gxm4AlHRffBkVQhjUi3yKN/HPk2GLw==",
+  "dgSpecHash": "6G8zjcy3CQKQpXpm7yuLTJt3DmwQxCzfMdgjhAGeTzEnSBCyCBNL43mPzRpKaRxlT+6ErHkCRNcXDz8w5Sfmkg==",
   "success": true,
   "projectFilePath": "D:\\Practice\\Stuti1904\\Api\\Bookstore\\Bookstore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stuti.shahu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\stuti.shahu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.27\\microsoft.aspnetcore.authentication.jwtbearer.3.1.27.nupkg.sha512",
     "C:\\Users\\stuti.shahu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\stuti.shahu\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\stuti.shahu\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

@@ -1,0 +1,13 @@
+<div class="display">
+    <div class="card mx-auto" style="height:50vh; width:75vh">
+     <div class="card-header"><h4>Login Here<span class="fa fa-book-reader"></span></h4></div>
+            <div class="mx-auto">
+     <form class="p-2 " [formGroup]="LoginForm">
+  <div class="m-2"><label class="m-1">Username</label> <input type="text" placeholder="enter your username" formControlName="userName"></div>
+  <div  class="m-2"><label class="m-1">Password</label> <input type="password" placeholder="Enter your password" formControlName="password"></div>
+  <div class="mx-auto button"><button class="btn btn-primary" (click)="login()">Log In</button></div>
+</form>
+</div>
+<p class="mx-auto">Don't have an account,<a routerLink ="/signup">Sign Up!</a></p>
+</div>
+</div> 

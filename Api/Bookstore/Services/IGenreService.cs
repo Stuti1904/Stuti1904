@@ -11,6 +11,7 @@ namespace Bookstore.Services
         Task<List<Genre>> GetAll();
         Task<Genre> Add(Genre genre);
          Task<Genre> Update(int id, Genre genre);
+        Task<Genre> Delete(int id);
     }
 
     public class GenreService : RepositoryService<Genre>, IGenreService
@@ -38,6 +39,13 @@ namespace Bookstore.Services
             tobeupdated.Location = genre.Location;
                 await base.update(tobeupdated);
             return tobeupdated;
+        }
+
+        public async Task<Genre> Delete(int id)
+        {
+            var tobeDeleted = await base.GetOne(id);
+            await base.Delete(id);
+            return tobeDeleted;
         }
     }
 }

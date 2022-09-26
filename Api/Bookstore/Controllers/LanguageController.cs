@@ -30,5 +30,17 @@ namespace Bookstore.Controllers
             return Ok(await service.Add(language));
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] Language language)
+        {
+            return Ok(await service.Update(id, language));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await service.Delete(id));
+        }
+
     }
 }

@@ -124,3 +124,19 @@ update Authors
 set isActive=0
 where AuthorID= (select AuthorID from deleted)
 
+create trigger InsteadOfDeletingGenre
+on genre
+instead of delete
+as
+update genre
+set isActive=0
+where GenreID=(select GenreID from deleted)
+
+create trigger insteadOfDeletingLanguage
+on language
+instead of delete
+as
+update Language
+set IsActive=0
+where LanguageID=(select LanguageID from deleted)
+

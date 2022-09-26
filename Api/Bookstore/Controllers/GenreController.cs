@@ -36,5 +36,11 @@ namespace Bookstore.Controllers
         {
             return Ok(await service.Update(id, genre));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await service.Delete(id));
+        }
     }
 }

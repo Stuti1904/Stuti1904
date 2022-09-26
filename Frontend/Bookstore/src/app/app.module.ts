@@ -20,6 +20,11 @@ import { EditBooksComponent } from './edit-books/edit-books.component';
 import { EditAuthorsComponent } from './edit-authors/edit-authors.component';
 import { FloatButtonsComponent } from './float-buttons/float-buttons.component';
 import { EditGenreComponent } from './edit-genre/edit-genre.component';
+import { LanguagesComponent } from './languages/languages.component';
+import { EditLanguageComponent } from './edit-language/edit-language.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +42,11 @@ import { EditGenreComponent } from './edit-genre/edit-genre.component';
     EditAuthorsComponent,
     FloatButtonsComponent,
     EditGenreComponent,
+    LanguagesComponent,
+    EditLanguageComponent,
+    LoginComponent,
+    SignUpComponent,
+    AdminPanelComponent,
    
   ],
   imports: [

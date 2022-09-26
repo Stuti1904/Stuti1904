@@ -23,4 +23,9 @@ export class GenreService {
     var call=this.http.put(`${this.hostrul}/genre/${id}`, genre);
     return call;
   }
+
+  deleteGenre(id:number){
+    var call= this.http.delete(`${this.hostrul}/genre/${id}`);
+    return call;
+  }
 }

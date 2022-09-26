@@ -12,3 +12,28 @@
 .cardDivision{
      height:80vh;
 }
+
+
+@media only screen and (max-width: 600px) {
+     .description{display:none;}
+   }
+   
+   /* Small devices (portrait tablets and large phones, 600px and up) */
+   @media only screen and (min-width: 600px) {
+     .description{display:none;}
+   }
+   
+   /* Medium devices (landscape tablets, 768px and up) */
+   @media only screen and (min-width: 768px) {
+     .description{display:block;}
+   } 
+   
+   /* Large devices (laptops/desktops, 992px and up) */
+   @media only screen and (min-width: 992px) {
+     .description{display:block;}
+   } 
+   
+   /* Extra large devices (large laptops and desktops, 1200px and up) */
+   @media only screen and (min-width: 1200px) {
+     .description{display:block;}
+   }

@@ -1,0 +1,10 @@
+.display{
+    height:100vh;
+}
+
+.centered{
+    margin-inline: 40%;
+}
+.button{
+    padding-inline:30%;
+}

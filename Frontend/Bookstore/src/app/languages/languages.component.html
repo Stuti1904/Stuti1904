@@ -1,0 +1,32 @@
+<div class="display">
+    <div class="border-bottom m-3 p-3">
+        <h2 class="text-primary">LANGUAGES CURRENTLY AVAILABLE IN THE STORE</h2>
+        </div>
+        <div class="display m-3 p-3">
+            <table class="table">
+                <thead>
+                    <th> Language ID</th>
+                    <th>Name</th>
+                    <th></th>
+                </thead>
+                <tbody > 
+                    <tr *ngFor="let language of Languages |paginate: {itemsPerPage: pageSize,currentPage:page,totalItems: count}">
+                        <ng-container *ngIf="language.isActive==1">
+                        <td>
+                            {{language.languageId}} 
+                        </td>
+                        <td>
+                                {{language.name}} 
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary m-1" [routerLink]="['/editLanguage', language.languageId]">Edit</button>
+                            <button class="btn btn-outline-danger m-1" (click)="delete(language.languageId)">Delete</button>
+                        </td>
+                    </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+             <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls> 
+        </div>
+        </div>
+    

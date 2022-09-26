@@ -17,4 +17,14 @@ export class LanguageService {
     var call=this.http.post(`${this.hostrul}/language`, language);
     return call;
   }
+
+  updateLanguage( id:number, language:any){
+    var call=this.http.put(`${this.hostrul}/language/${id}`, language);
+    return call;
+  }
+
+  deleteLanguage(id:number){
+    var call=this.http.delete(`${this.hostrul}/language/${id}`);
+    return call;
+  }
 }

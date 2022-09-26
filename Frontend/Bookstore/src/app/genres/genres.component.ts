@@ -26,5 +26,9 @@ tempGenre:any;
     this.page = event;
 
   }
-
+delete(id:any){
+  this.genreservice.deleteGenre(id).subscribe((a:any)=>{
+    this.ngOnInit();
+  })
+}
 }

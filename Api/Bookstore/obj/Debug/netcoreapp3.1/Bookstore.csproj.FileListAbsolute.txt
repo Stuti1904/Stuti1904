@@ -62,3 +62,4 @@ D:\Practice\Stuti1904\Api\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.csproj.Cop
 D:\Practice\Stuti1904\Api\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.dll
 D:\Practice\Stuti1904\Api\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.pdb
 D:\Practice\Stuti1904\Api\Bookstore\obj\Debug\netcoreapp3.1\Bookstore.genruntimeconfig.cache
+D:\Practice\Stuti1904\Api\Bookstore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

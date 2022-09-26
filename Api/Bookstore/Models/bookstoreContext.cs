@@ -23,6 +23,7 @@ namespace Bookstore.Models
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -137,6 +138,29 @@ namespace Bookstore.Models
                 entity.Property(e => e.LocationId).HasColumnName("LocationID");
 
                 entity.Property(e => e.LocationName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(225)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("password");
+
+                entity.Property(e => e.Role)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
