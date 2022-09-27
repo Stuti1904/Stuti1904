@@ -140,3 +140,16 @@ update Language
 set IsActive=0
 where LanguageID=(select LanguageID from deleted)
 
+
+create table Users(
+UserID int identity(1,1) PRIMARY KEY,
+UserName varchar(100),
+email varchar(225),
+password varchar(100),
+Role  varchar(20) check(Role in('Admin', 'Operator'))
+)
+
+
+insert into Users values('userOne', 'userOne@gmail.com', 'userOne12', 'Admin'),
+('userTwo', 'userTwo@gmail.com', 'userTwo12', 'Admin'),
+('userThree', 'userThree@gmail.com', 'userThree12', 'Operator')
