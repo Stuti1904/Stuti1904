@@ -25,6 +25,10 @@ import { EditLanguageComponent } from './edit-language/edit-language.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { StoreFrontNavComponent } from './store-front-nav/store-front-nav.component';
+import { StoreFrontHomeComponent } from './store-front-home/store-front-home.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,10 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     LoginComponent,
     SignUpComponent,
     AdminPanelComponent,
+    StoreFrontNavComponent,
+    StoreFrontHomeComponent,
+    BasicInfoComponent,
+    CheckOutComponent,
    
   ],
   imports: [

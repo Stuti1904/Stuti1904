@@ -19,7 +19,7 @@
                                 {{language.name}} 
                         </td>
                         <td>
-                            <button class="btn btn-outline-primary m-1" [routerLink]="['/editLanguage', language.languageId]">Edit</button>
+                            <button class="btn btn-outline-primary m-1" (click)="gotoEditPage(language.languageId)">Edit</button>
                             <button class="btn btn-outline-danger m-1" (click)="delete(language.languageId)">Delete</button>
                         </td>
                     </ng-container>

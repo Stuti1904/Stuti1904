@@ -4,7 +4,7 @@ import { LocationService } from '../location.service';
 import { GenreService } from '../genre.service';
 import { AuthorService } from '../author.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LanguageService } from '../language.service';
 
 @Component({
@@ -59,7 +59,7 @@ tempLanguage:any;
 
   constructor(private service:BookService, private services:LocationService,
     private genreservice:GenreService, private authorservice:AuthorService, private fb:FormBuilder, private router:Router,
-    private languageservice:LanguageService) { }
+    private languageservice:LanguageService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getBooks().subscribe((a: any)=>{
@@ -107,7 +107,7 @@ tempLanguage:any;
       this.tempauthor.isActive=JSON.parse(this.tempauthor.isActive);
    
       this.authorservice.postAuthor(this.tempauthor).subscribe((a:any)=>{
-        this.router.navigate(['/author']);
+        this.router.navigate(['authors'], {relativeTo:this.route})
       })
       console.log(this.NewAuthor.value);
     }
@@ -119,7 +119,7 @@ tempLanguage:any;
       this.tempGenre.isActive=JSON.parse(this.tempGenre.isActive);
       this.genreservice.postgenre(this.tempGenre).subscribe((a:any)=>{
         this.NewGenre.reset();
-        this.router.navigate(['/genres']);
+        this.router.navigate(['genres'], {relativeTo:this.route})
     })
   }
 
@@ -143,6 +143,10 @@ tempLanguage:any;
       this.page = event;
   
     }
-
-   
+showdetails(id:any){
+this.router.navigate(['details/'+id], {relativeTo: this.route} );
+}
+   gotoEditPage(id:any){
+    this.router.navigate(['editbook/'+id], {relativeTo: this.route} );
+   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GenreService } from '../genre.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-genres',
@@ -13,7 +14,7 @@ page = 1;
   count = 0;
   pageSize = 5;
 tempGenre:any;
-  constructor(private genreservice:GenreService) { }
+  constructor(private genreservice:GenreService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -30,5 +31,8 @@ delete(id:any){
   this.genreservice.deleteGenre(id).subscribe((a:any)=>{
     this.ngOnInit();
   })
+}
+gotoEditPage(id:any){
+  this.router.navigate(['editgenre/'+id], {relativeTo: this.route} );
 }
 }

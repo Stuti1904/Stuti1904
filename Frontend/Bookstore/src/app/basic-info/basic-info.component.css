@@ -1,0 +1,23 @@
+.image{
+    height:10vh;
+    margin-inline: 40%;
+}
+
+.display{
+    height: 120vh;
+}
+.button{
+    margin-inline: 30%;
+    margin-block: 10%;
+}
+
+.detail{
+   text-align: center;
+  
+
+  vertical-align: middle;
+}
+
+.searchbox{
+    margin-left: 90%;
+}

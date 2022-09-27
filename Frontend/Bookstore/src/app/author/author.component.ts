@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorService } from '../author.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-author',
@@ -11,7 +12,7 @@ Authors:Array<any>=[];
 page=1;
 count=0;
 pageSize=5;
-  constructor(private service:AuthorService) { }
+  constructor(private service:AuthorService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getAuthors().subscribe((auth:any)=>{
@@ -26,5 +27,8 @@ deleteauthors(id:any){
 handlePageChange(even:any){
   console.log(even);
   this.page=even;
+}
+gotoEditPage(id:any){
+  this.router.navigate(['editauthor/'+id], {relativeTo: this.route} );
 }
 }

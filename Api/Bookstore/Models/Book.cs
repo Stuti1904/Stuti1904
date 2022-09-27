@@ -27,4 +27,19 @@ namespace Bookstore.Models
         public virtual Genre GenreNavigation { get; set; }
         public virtual ICollection<BooksInLanguage> BooksInLanguages { get; set; }
     }
+
+
+    public class GetInfoDTO {
+        public string Title { get; set; }
+        public string Images { get; set; }
+        public decimal? Price { get; set; }
+
+        public string AuthorName { get; set; }
+
+        public string GenreName { get; set; }
+
+        public string Name { get; set; }
+
+        public int? Quantity { get; set; }
+    }
 }

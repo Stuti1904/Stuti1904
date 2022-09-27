@@ -19,7 +19,7 @@
                     </a>
                 </td>
                 <td>
-                    <button class="btn btn-outline-primary m-1" [routerLink]="['/editauthor', author.authorId]">Edit</button>
+                    <button class="btn btn-outline-primary m-1" (click)="gotoEditPage(author.authorId)">Edit</button>
                     <button class="btn btn-outline-danger m-1" (click)="deleteauthors(author.authorId)">Delete</button>
                 </td>
             </ng-container>

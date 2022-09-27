@@ -10,7 +10,7 @@
             <h3 class="fw-bold border-bottom">{{item.title}}</h3>
             <p class="text-muted description">{{item.description}}</p>
             <p> Price: {{item.price}}Rs</p>
-            <button class="btn btn-outline-primary m-1" [routerLink]="['/editbook', item.bookId]">Edit</button>
+            <button class="btn btn-outline-primary m-1" (click)="gotoEditPage(item.bookId)">Edit</button>
             <button class="btn btn-outline-danger m-1"(click)="deleteBook(item.bookId)"> Delete</button><br>
             <div *ngFor="let genre of Genre">
               <div *ngFor="let location of Locations">
@@ -21,7 +21,7 @@
                   </span>
               </div>
             </div>
-            <a class="text-primary m-2" [routerLink]="['/details', item.bookId]">Details>>></a>
+            <a class="text-primary m-2 changecursor" (click)="showdetails(item.bookId)">Details>>></a>
         </div>
     </div>
   </div>

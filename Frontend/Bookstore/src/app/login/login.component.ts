@@ -41,13 +41,13 @@ login(){
         let decodedJwtData = JSON.parse(decodedJwtJsonData);
         if(decodedJwtData.role=="Admin"){
 
-          this.router.navigate(['/books']);
+          this.router.navigate(['/admin']);
 
         }
 
         else{
 
-          this.router.navigate(['/language']);
+          this.router.navigate(['/storefront']);
 
         }
  

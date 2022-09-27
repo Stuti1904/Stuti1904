@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../language.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-languages',
@@ -11,7 +12,7 @@ Languages:Array<any>=[];
 page = 1;
   count = 0;
   pageSize = 5;
-  constructor(private service: LanguageService) { }
+  constructor(private service: LanguageService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -28,5 +29,8 @@ page = 1;
     this.service.deleteLanguage(id).subscribe((a:any)=>{
       this.ngOnInit();
     })
+  }
+  gotoEditPage(id:any){
+    this.router.navigate(['editLanguage/'+id], {relativeTo: this.route} );
   }
 }

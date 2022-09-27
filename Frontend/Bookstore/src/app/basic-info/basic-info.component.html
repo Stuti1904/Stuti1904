@@ -1,0 +1,28 @@
+<div class="display m-4 ">
+    <input type="search" [(ngModel)]="searchtext" placeholder="Search..." class="searchbox">
+<table class="table table-bordered m-4">
+    <thead>
+        <th class="detail">Title</th>
+        <th class="detail">Cover</th>
+        <th class="detail">Price</th>
+        <th class="detail">Genre</th>
+        <th class="detail">Author</th>
+        <th class="detail">Language</th>
+        <th class="detail">Quantity</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let info of Information|paginate: {itemsPerPage: pageSize, currentPage:page, totalItems: count}|filter:searchtext">
+            <td class="detail">{{info.title}}</td>
+            <td> <img src={{info.images}} alt="image" class="image"></td>
+            <td class="detail">{{info.price}}</td>
+            <td class="detail">{{info.genreName}}</td>
+            <td class="detail">{{info.authorName}}</td>
+            <td class="detail">{{info.name}}</td>
+            <td class="detail">{{info.quantity}}</td>
+            <td><button class="btn btn-outline-primary  button" (click)="addToCart(info.title)">Add to bill</button></td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls> 
+</div>

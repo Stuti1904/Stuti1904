@@ -1,5 +1,6 @@
 .display{
     height:100vh;
+    margin-top: 2%;
 }
 
 .centered{
@@ -7,4 +8,8 @@
 }
 .button{
     padding-inline:30%;
+}
+.navigation{
+    height:50px;
+    
 }

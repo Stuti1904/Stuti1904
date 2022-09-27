@@ -153,3 +153,19 @@ Role  varchar(20) check(Role in('Admin', 'Operator'))
 insert into Users values('userOne', 'userOne@gmail.com', 'userOne12', 'Admin'),
 ('userTwo', 'userTwo@gmail.com', 'userTwo12', 'Admin'),
 ('userThree', 'userThree@gmail.com', 'userThree12', 'Operator')
+
+
+alter table users
+add isActive bit
+
+create procedure GetInfo
+as
+select b.Title, b.Price,b. images, g.GenreName,a.AuthorName, l.Name, bl.Quantity from Books as b join BooksInLanguages as bl on b.BookID=bl.Book
+
+join Language as l on bl.Language=l.LanguageID
+join Genre as g on g.GenreID=b.Genre
+join Authors as a on a.AuthorID=b.Author
+where b.IsActive=1 and l.IsActive=1
+
+
+execute GetInfo

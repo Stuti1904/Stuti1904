@@ -25,6 +25,8 @@ namespace Bookstore.Models
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
+        public virtual DbSet<GetInfoDTO> GetInfoDTOs { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -51,6 +53,11 @@ namespace Bookstore.Models
                 entity.Property(e => e.Gender)
                     .HasMaxLength(20)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<GetInfoDTO>(entity =>
+            {
+                entity.HasNoKey();
             });
 
             modelBuilder.Entity<Book>(entity =>
@@ -150,6 +157,8 @@ namespace Bookstore.Models
                     .HasMaxLength(225)
                     .IsUnicode(false)
                     .HasColumnName("email");
+
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(100)
