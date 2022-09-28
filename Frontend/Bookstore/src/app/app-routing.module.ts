@@ -45,7 +45,7 @@ children: [
 children: [
   {path:'basicInfo', component:BasicInfoComponent},
   {path:'', redirectTo:'basicInfo', pathMatch: 'full'},
-  {path:'basicInfo/checkout', component:CheckOutComponent}
+  {path:'checkout', component:CheckOutComponent}
 ]},
 ];
 

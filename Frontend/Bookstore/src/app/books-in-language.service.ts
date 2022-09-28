@@ -17,4 +17,9 @@ export class BooksInLanguageService {
     var call= this.http.post(`${this.hostrul}/booksinlanguage`, languages);
     return call;
   }
+
+  updateLanguage(id:number){
+    var call= this.http.put(`${this.hostrul}/booksinlanguage/${id}`, '');
+    return call;
+  }
 }

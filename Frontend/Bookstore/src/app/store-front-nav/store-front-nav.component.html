@@ -1,12 +1,12 @@
 <div class="d-flex navigation container-fluid border-bottom border-primary">
     <div  class=" text my-auto text-primary mx-2">
-        <span class="me-2 changecursor">Bookstore <i class="fas fa-book-reader"></i></span>
+        <span class="me-2 changecursor" (click)="goToHomePage()">Bookstore <i class="fas fa-book-reader"></i></span>
     </div>
     <div class="ms-auto me-5  my-auto text-primary">
         <div class="dropdown">
             <button class="dropbtn btn text-primary text">StoreFront</button>
             <div class="dropdown-content text-primary">
-              <a>Check Out</a>
+              <a (click)=" goToCheckout()">Check Out</a>
               <a routerLink="/login" (click)="logout()">Logout</a>
             </div>
           </div>

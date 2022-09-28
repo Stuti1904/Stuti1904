@@ -31,5 +31,11 @@ namespace Bookstore.Controllers
         {
             return Ok(await services.Add(books));
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id)
+        {
+            return Ok(await services.Update(id));
+        }
     }
 }
